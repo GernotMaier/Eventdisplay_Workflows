@@ -1,0 +1,2 @@
+include: "rules/anasum.mk"
+include: "rules/v2dl3-pointlike.mk"
