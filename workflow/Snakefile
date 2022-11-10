@@ -1,2 +1,2 @@
 
-include: "rules/v2dl3-pointlike.mk"
+include: "rules/v2dl3-pointlike-apptainer.mk"
