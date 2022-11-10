@@ -1,11 +1,16 @@
+configfile: "config/config_docker.yml"
+
+container_command = expand(
+	"{container_prefix} {container_image}", 
+	container_prefix=config['container_prefix'], 
+	container_image=config['container_image'])
+
 rule v2_dl3_pointlike: 
 	output: 
-		"{runnumber}.fits.gz"
+		"data/output/{runnumber}.fits.gz"
 	input: 
-		"/Users/maierg/Downloads/v2dl3/ci/64080.anasum.root"
+		"data/input/{runnumber}.anasum.root"
 	log:
-		"/tmp/snakemake/logs/{runnumber}.v2ld3_pl.log"
-	conda:
-		"../envs/v2dl3-pointlike.yml"
-	shell: 
-		"echo {input} {output} {runnumber}"
+		"data/logs/{runnumber}.v2ld3_pointlike.log"
+	shell:
+		"{container_command} python /V2DL3/pyV2DL3/script/v2dl3_for_Eventdisplay.py -f /{input} /data/input/effectiveArea.root /{output}"

@@ -12,3 +12,9 @@ conda install -n base -c conda-forge mamba
 ```
 
 ## Workflows
+
+Testing:
+
+```
+snakemake --cores 1 -p data/output/64080.fits.gz
+```
