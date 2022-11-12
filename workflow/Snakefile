@@ -1,2 +1,7 @@
 
-include: "rules/v2dl3-pointlike-apptainer.mk"
+rule:
+    input:
+        "results/{runnumber}.fits.gz"
+
+include: "rules/v2dl3-pointlike.mk"
+
