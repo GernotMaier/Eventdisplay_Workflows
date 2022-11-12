@@ -14,14 +14,19 @@ mamba create -c conda-forge -c bioconda -n snakemake snakemake
 
 ## Workflows
 
-Testing:
-
-```
-snakemake --cores 1 -p data/output/64080.fits.gz
-```
-
 Using apptainer:
 use APPTAINER_DOCKER_PASSWORD and APPTAINER_DOCKER_USERNAME
 ```
-snakemake --use-singularity --cores 1 -p data/output/64080.fits.gz
+snakemake --cores 1 --use-singularity --singularity-args "--no-home " -s workflow/Snakefile
 ```
+
+Submit to gridengine:
+```
+snakemake --cores 1 --jobs 1 --cluster "qsub " --use-singularity --singularity-args "--no-home " -s workflow/Snakefile
+```
+
+(remark below)
+```
+snakemake --cores 1 --jobs 1 -p --cluster "apptainer exec docker://ghcr.io/veritas-observatory/v2dl3:pr-171-v2dl3-eventdisplay " results/64080.fits.gz
+```
+

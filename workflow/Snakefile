@@ -1,7 +1,12 @@
+configfile: "config/config.yml"
+import pandas as pd
+
+run_list = (
+    pd.read_csv(
+    config["run_list"], sep="\t", dtype={"run": int}).set_index("run", drop=False).sort_index())
 
 rule:
     input:
-        "results/{runnumber}.fits.gz"
+        expand("results/{runnumber}.fits.gz", runnumber=run_list.index)
 
 include: "rules/v2dl3-pointlike.mk"
-
