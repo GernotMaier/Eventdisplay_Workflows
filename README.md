@@ -30,3 +30,7 @@ snakemake --cores 1 --jobs 1 --cluster "qsub " --use-singularity --singularity-a
 snakemake --cores 1 --jobs 1 -p --cluster "apptainer exec docker://ghcr.io/veritas-observatory/v2dl3:pr-171-v2dl3-eventdisplay " results/64080.fits.gz
 ```
 
+## HTCondor
+
+mamba install -c conda-forge python-htcondor
+
