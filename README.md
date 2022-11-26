@@ -4,7 +4,7 @@ Eventdisplay workflows using the [Snakemake](https://snakemake.readthedocs.io/en
 
 ## Installation
 
-Installation of Snakemake (see [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
+Installation of Snakemake (see [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)).
 
 Installation of mamba package manager (additionaly to conda):
 ```
@@ -15,7 +15,7 @@ mamba create -c conda-forge -c bioconda -n snakemake snakemake
 ## Workflows
 
 Using apptainer:
-use APPTAINER_DOCKER_PASSWORD and APPTAINER_DOCKER_USERNAME
+set environmental variables for `$APPTAINER_DOCKER_PASSWORD` and `$APPTAINER_DOCKER_USERNAME`.
 ```
 snakemake --cores 1 --use-singularity --singularity-args "--no-home " -s workflow/Snakefile
 ```
