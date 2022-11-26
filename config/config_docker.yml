@@ -1,0 +1,2 @@
+container_prefix: "docker run --rm -it -v \"$(pwd)/data:/data\""
+container_image: "ghcr.io/veritas-observatory/v2dl3:pr-171-v2dl3-eventdisplay"
